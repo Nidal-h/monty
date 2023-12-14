@@ -12,21 +12,21 @@
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
-				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-				{"pop", f_pop},
-				{"swap", f_swap},
-				{"add", f_add},
-				{"nop", f_nop},
-				{"sub", f_sub},
-				{"div", f_div},
-				{"mul", f_mul},
-				{"mod", f_mod},
-				{"pchar", f_pchar},
-				{"pstr", f_pstr},
-				{"rotl", f_rotl},
-				{"rotr", f_rotr},
-				{"queue", f_queue},
-				{"stack", f_stack},
+				{"push", add_stack}, {"pall", every_stack}, {"pint", print_stack},
+				{"pop", top_stack},
+				{"swap", swap_stack},
+				{"add", double_stack},
+				{"nop", double_head_stack},
+				{"sub", substrac_stack},
+				{"div", divide_stack},
+				{"mul", multiply_stack},
+				{"mod", modulo_stack},
+				{"pchar", print_char_stack},
+				{"pstr", print_str_stack},
+				{"rotl", rotate_stack},
+				{"rotr", rotate_bottom_stack},
+				{"queue", print_queue_stack},
+				{"stack", head_stack},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -48,7 +48,8 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
 		fclose(file);
 		free(content);
-		free_stack(*stack);
+		freeStack(*stack);
 		exit(EXIT_FAILURE); }
 	return (1);
 }
+
