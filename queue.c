@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
-* print_queue_stack - function that prints the top of the queue
+* enable_queue_mode - function that prints the top of the queue
 * @head: head of queue
 * @counter: line count
 *
 * Return: nothing
 */
-void print_queue_stack(stack_t **head, unsigned int counter)
+void enable_queue_mode(stack_t **head, unsigned int counter)
 {
 	(void)head;
 	(void)counter;
@@ -15,13 +15,13 @@ void print_queue_stack(stack_t **head, unsigned int counter)
 }
 
 /**
-* add_queue_stack - function that add node to the tail the queue
+* add_node_to_tail - function that add node to the tail the queue
 * @n: new value
 * @head: head of the queue
 *
 * Return: nothing
 */
-void add_queue_stack(stack_t **head, int n)
+void add_node_to_tail(stack_t **head, int n)
 {
 	stack_t *new_node, *temp;
 
@@ -49,3 +49,4 @@ void add_queue_stack(stack_t **head, int n)
 		new_node->prev = temp;
 	}
 }
+

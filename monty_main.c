@@ -41,11 +41,12 @@ int main(int argc, char *argv[])
 		counter++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, counter, file);
+			process_opcode(content, &stack, counter, file);
 		}
 		free(content);
 	}
-	freeStack(stack);
+	release_stack(stack);
 	fclose(file);
 return (0);
 }
+

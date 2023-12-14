@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
-* double_stack- function that adds the top two elements of the stack
+* stack_add - function that adds the top two elements of the stack
 * @head: double pointer head to the stack
 * @counter: line count
 *
 * Return: nothing
 */
-void double_stack(stack_t **head, unsigned int counter)
+void stack_add(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -23,7 +23,7 @@ void double_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -34,13 +34,13 @@ void double_stack(stack_t **head, unsigned int counter)
 }
 
 /**
-* substrac_stack - function that substracts nodes
+* stack_subtract - function that substracts nodes
 * @head: double head pointer to the stack
 * @counter: line count
 *
 * Return: nothing
 */
-void substrac_stack(stack_t **head, unsigned int counter)
+void stack_subtract(stack_t **head, unsigned int counter)
 {
 	stack_t *temp;
 	int sub, nd;
@@ -53,7 +53,7 @@ void substrac_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
@@ -64,13 +64,13 @@ void substrac_stack(stack_t **head, unsigned int counter)
 }
 
 /**
-* multiply_stack - function that multiplies the top two elements of the stack
+* stack_multiply - function that multiplies the top two elements of the stack
 * @head: double head pointer to the stack
 * @counter: line count
 *
 * Return: nothing
 */
-void multiply_stack(stack_t **head, unsigned int counter)
+void stack_multiply(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -86,7 +86,7 @@ void multiply_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -97,13 +97,13 @@ void multiply_stack(stack_t **head, unsigned int counter)
 }
 
 /**
-* divide_stack - function that divides the top two elements of the stack
+* stack_divide - function that divides the top two elements of the stack
 * @head: double head pointer to the stack
 * @counter: line count
 *
 * Return: nothing
 */
-void divide_stack(stack_t **head, unsigned int counter)
+void stack_divide(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -119,7 +119,7 @@ void divide_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -128,7 +128,7 @@ void divide_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: division by zero\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	temp = h->next->n / h->n;
@@ -138,14 +138,14 @@ void divide_stack(stack_t **head, unsigned int counter)
 }
 
 /**
-* modulo_stack - function that computes the remainder of the division of the second
+* stack_modulus - function that computes the remainder of the division of the second
 * top element of the stack by the top element of the stack
 * @head: double head pointer to the stack
 * @counter: line count
 *
 * Return: nothing
 */
-void modulo_stack(stack_t **head, unsigned int counter)
+void stack_modulus(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
@@ -161,7 +161,7 @@ void modulo_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -170,7 +170,7 @@ void modulo_stack(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: division by zero\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		freeStack(*head);
+		release_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	temp = h->next->n % h->n;
