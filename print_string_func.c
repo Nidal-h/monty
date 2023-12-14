@@ -25,3 +25,4 @@ void print_str_stack(stack_t **head, unsigned int counter)
 	}
 	printf("\n");
 }
+
